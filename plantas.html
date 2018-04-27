@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            animales
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="js/jquery-3.3.1.js" type="text/javascript"></script>
+        <script src="js/jquery-ui.js" type="text/javascript"></script>
+        <script src="js/jquery-3.3.1.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
+        <style type="text/css">
+
+
+
+
+            /* Media Queries */
+            @media only screen and (max-width: 340px) {
+
+                .container {
+                    position: relative;
+                    display: block;
+                    float: left;
+                    vertical-align: baseline;
+                    margin: 0 auto;
+                    padding: 80px 0 0 0;
+                }
+
+                #more-content {
+                    float: left;
+                    margin-right: 10px;
+
+                }
+
+                body h1 {
+                    font-size: 18px;
+                    line-height: 23px;
+                } 
+
+                .content, blockquote {  
+                    display: inline;
+                    margin: 0 auto;
+                    padding-top: 80px;
+                    vertical-align: baseline;
+                }
+
+                blockquote {
+                    width: 150px;
+                    margin: 15px auto;
+                    font-size: 16px;
+                    line-height: 21px;
+                    background-color: transparent;
+                }
+
+                blockquote cite {
+                    font-size: 14px;
+                    line-height: 19px;
+                }
+
+                .sub-title {
+                    font-size: 14px;
+                    line-height: 21px;
+                }
+
+                .button, p {
+                    max-width: 150px;
+                    margin: 0 auto;
+                    font-size: 15px;
+                    line-height: 20px;
+                }
+
+                html, body, .container {
+                    height: auto;
+                }
+            }
+
+            body {
+                /* Location of the image */
+                background-image: url(img/fondo.jpg);
+
+                /* Image is centered vertically and horizontally at all times */
+                background-position: center center;
+
+                /* Image doesn't repeat */
+                background-repeat: no-repeat;
+
+                /* Makes the image fixed in the viewport so that it doesn't move when 
+                   the content height is greater than the image height */
+                background-attachment: fixed;
+
+                /* This is what makes the background image rescale based on its container's size */
+                background-size: cover;
+
+                /* Pick a solid background color that will be displayed while the background image is loading */
+                background-color:#464646;
+
+                /* SHORTHAND CSS NOTATION
+                 * background: url(background-photo.jpg) center center cover no-repeat fixed;
+                 */
+            }
+
+            /* For mobile devices */
+            @media only screen and (max-width: 767px) {
+                body {
+                    background-image: url(img/fondo2.png);
+                }
+            }
+
+            body{
+                margin: auto;
+                width: 100%;
+                height: 100%;
+                display: inline;
+                alignment-adjust: central;
+
+            }
+            #animales{
+                margin: auto;
+                height: 90%;
+                width: 20%;
+                display: inline-block;
+
+
+            }
+            #habitat{
+                margin: auto;
+                display: inline-block;
+                width: 50%;
+                height: 60%;
+                alignment-adjust: middle;
+
+            }
+            #col1{
+                width: 32%;
+                height: 100%;
+                display: inline-block;
+            }
+            #animal{
+                width: 100%;
+                height: 24%;
+            }
+
+            div.animales:hover {
+                border: 1px solid #777;
+            }
+            div.habitat:hover {
+                border: 1px solid #777;
+            }
+            div.desc {
+                padding: 15px;
+                text-align: center;
+            }
+            #h1{
+                display: inline-block;
+                width: 90%;
+                height: 48;                  
+
+            }
+            .hab{
+                display: inline-block;
+                width: 48%;
+                height: 90%
+            }
+            .fond{
+                width: 100%;
+                height: 90%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ui-corner-top ui-widget-header" id="menu">
+            <p>
+                aqui va ir el menu
+            </p>
+
+        </div>
+
+        <div class="animales" id="animales">
+            <div id="col1">
+                <div onmousedown="selva();" id="selva">
+                    <img  src="img/ciervo-selva.svg">                    
+                </div>
+                <div id="tundra">
+                    <img  src="img/foca-tundra.svg">
+                </div>                
+                <div id="selva1" onmousedown="selva();" class="ui-draggable ui-draggable-handle" style="position: relative;">
+                    <img  src="img/guacamaya-selva.svg">
+                </div>
+                <div id="desierto" onmousedown="desierto();">
+                    <img  src="img/escorpion-desierto.svg">
+                </div>
+                <div id="bosque">
+                    <img   src="img/mapache-bosque.svg">
+                </div>
+
+
+
+            </div>
+            <div id="col1">
+                <div id="tundra1">
+                    <img src="img/oso-tundra.svg">
+                </div>
+                <div id="desierto1" onmousedown="desierto();">
+                    <img   src="img/cam.svg">
+                </div>
+                <div id="desierto2" onmousedown="desierto();">
+                    <img  src="img/serpiente-desierto.svg">
+                </div>
+                <div id="tundra2">
+                    <img  src="img/pinguino-tundra.svg">
+                </div>
+                <div id="selva2" onmousedown="selva();">
+                    <img  src="img/leopardo-selva.svg">
+                </div>
+
+            </div>
+            <div id="col1">
+                <div id="desierto3" onmousedown="desierto();">
+                    <img  src="img/zorro-desierto.svg">
+
+                </div>
+                <div id="tundra3">
+                    <img  src="img/reno-tundra.svg">
+                </div>
+                <div id="selva3" onmousedown="selva();">
+                    <img   src="img/hipopotamo-selva.svg">
+                </div>
+                <div id="bosque1">
+                    <img  src="img/buho.svg">
+                </div>
+                <div id="selva4" onmousedown="selva();">
+                    <img  src="img/chimpance-selva.svg">
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+        <div  id="habitat">
+            <div id="h1">
+                <div class="ui-widget-header hab" id="droppable">
+                    <img  class="fond" src="img/selva.jpg">
+                </div>
+                <div class="ui-widget-header hab" id="droppable1">
+                    <img class="fond" src="img/tundra.jpg">
+                </div>
+            </div>
+            <div id="h1">
+                <div  class="ui-widget-header hab" id="droppable2">
+                    <img class="fond" src="img/desierto.jpg">
+                </div>
+                <div class="ui-widget-header hab" id="droppable3">
+                    <img class="fond" src="img/bosque.jpg">
+                </div>
+            </div>
+        </div>     
+        <script>
+/////////////////////////////////////////////////////////
+            /**
+             * Comment
+             */
+            function selva() {
+                //alert("se activa selva");
+                $(function () {
+                    $("#tundra").draggable({revert: "valid"});
+                    $("#tundra1").draggable({revert: "valid"});
+                    $("#tundra2").draggable({revert: "valid"});
+                    $("#tundra3").draggable({revert: "valid"});
+                    $("#desierto").draggable({revert: "valid"});
+                    $("#desierto1").draggable({revert: "valid"});
+                    $("#desierto2").draggable({revert: "valid"});
+                    $("#desierto3").draggable({revert: "valid"});
+                    $("#bosque").draggable({revert: "valid"});
+                    $("#bosque1").draggable({revert: "valid"});
+                    $("#selva").draggable({revert: "invalid"});
+                    $("#selva1").draggable({revert: "invalid"});
+                    $("#selva2").draggable({revert: "invalid"});
+                    $("#selva3").draggable({revert: "invalid"});
+                    $("#selva4").draggable({revert: "invalid"});
+
+
+                    $("#droppable").droppable({
+                        classes: {
+                            "ui-droppable-active": "ui-state-active",
+                            "ui-droppable-hover": "ui-state-hover"
+                        },
+                        drop: function (event, ui) {
+                            $(this)
+                                    .addClass("ui-state-highlight")
+                                    .find("p")
+                                    .html("Dropped!");
+                        }
+                    });
+                });
+            }
+
+            function desierto() {
+                console.log("se activa  desierto");
+                $(function () {
+                    $("#tundra").draggable({revert: "valid"});
+                    $("#tundra1").draggable({revert: "valid"});
+                    $("#tundra2").draggable({revert: "valid"});
+                    $("#tundra3").draggable({revert: "valid"});
+                    $("#desierto").draggable({revert: "invalid"});
+                    $("#desierto1").draggable({revert: "invalid"});
+                    $("#desierto2").draggable({revert: "invalid"});
+                    $("#desierto3").draggable({revert: "invalid"});
+                    $("#bosque").draggable({revert: "valid"});
+                    $("#bosque1").draggable({revert: "valid"});
+                    $("#selva").draggable({revert: "valid"});
+                    $("#selva1").draggable({revert: "valid"});
+                    $("#selva2").draggable({revert: "valid"});
+                    $("#selva3").draggable({revert: "valid"});
+                    $("#selva4").draggable({revert: "valid"});
+
+
+                    $("#droppable").droppable({
+                        classes: {
+                            "ui-droppable-active": "ui-state-active",
+                            "ui-droppable-hover": "ui-state-hover"
+                        },
+                        drop: function (event, ui) {
+                            $(this)
+                                    .addClass("ui-state-highlight")
+                                    .find("p")
+                                    .html("Dropped!");
+                        }
+                    });
+                });
+            }
+            function reset(){
+                    $("#tundra").draggable({revert: "valid"});
+                    $("#tundra1").draggable({revert: "valid"});
+                    $("#tundra2").draggable({revert: "valid"});
+                    $("#tundra3").draggable({revert: "valid"});
+                    $("#desierto").draggable({revert: "valid"});
+                    $("#desierto1").draggable({revert: "valid"});
+                    $("#desierto2").draggable({revert: "valid"});
+                    $("#desierto3").draggable({revert: "valid"});
+                    $("#bosque").draggable({revert: "valid"});
+                    $("#bosque1").draggable({revert: "valid"});
+                    $("#selva").draggable({revert: "valid"});
+                    $("#selva1").draggable({revert: "valid"});
+                    $("#selva2").draggable({revert: "valid"});
+                    $("#selva3").draggable({revert: "valid"});
+                    $("#selva4").draggable({revert: "valid"});                
+            }
+
+        </script>
+    </body>
+</html>
