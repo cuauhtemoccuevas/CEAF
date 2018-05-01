@@ -1,0 +1,91 @@
+@font-face {
+        font-family: courgette;
+        src: url(../font/Courgette-Regular.ttf);
+       }
+    
+body{
+        font-size: 15px;
+        font-family: courgette;
+        background: rgba(98,125,77,1);
+        background: -moz-linear-gradient(left, rgba(98,125,77,1) 0%, rgba(31,59,8,1) 100%);
+        background: -webkit-gradient(left top, right top, color-stop(0%, rgba(98,125,77,1)), color-stop(100%, rgba(31,59,8,1)));
+        background: -webkit-linear-gradient(left, rgba(98,125,77,1) 0%, rgba(31,59,8,1) 100%);
+        background: -o-linear-gradient(left, rgba(98,125,77,1) 0%, rgba(31,59,8,1) 100%);
+        background: -ms-linear-gradient(left, rgba(98,125,77,1) 0%, rgba(31,59,8,1) 100%);
+        background: linear-gradient(to right, rgba(98,125,77,1) 0%, rgba(31,59,8,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#627d4d', endColorstr='#1f3b08', GradientType=1 );
+    
+    }
+
+    nivel{
+        background-image: url(../img/fondo.jpg); background-repeat: no-repeat; background-size: cover;
+    }
+    
+    .title-nivel{
+        color: #FFF;
+    padding: 1.5em;
+        margin-bottom: 2em;
+        background-color:rgba(3, 3, 3, .8);
+    }
+    
+    img{
+    width: 80%;
+    height: 80%;
+        border-radius:54px;
+    margin: 0 auto;
+    }
+    
+    .img-opcion{
+        text-align: center;
+    
+    }
+    
+    .opcion{
+        color: #000;
+        font-size: 2em;
+    }
+    
+    .efecto img{
+        transition: all 0.2s ease-in-out;
+    }
+    
+    .mascara{
+        position: relative;
+        top: -54px;
+        opacity: 0;
+        background-color: rgba(46,157,120,0.7);
+        transition: all 0.4s easy-in-out;
+        margin: 0 auto;
+        border-radius: 0px 0px 54px 54px; 
+        width: 88%;
+    /*height: 88%;*/
+        color: #FFF;
+    }
+    
+    .efecto h2{
+    opacity: 0;
+        transition: all 0.7s ease-in-out;
+    }
+    
+    .efecto p{
+        transform: translateX(200px);
+        opacity: 0;
+        transition: all 0.4s linear;
+    }
+    
+    /*Zoom*/
+    .efecto:hover img{
+        transform: scale(1.1);
+    }
+
+    .efecto:hover h2,
+    .efecto:hover p,
+    .efecto:hover .mascara{
+    opacity: 1;
+        transform: translateX(0px);
+    }
+    
+    .efecto:hover p{
+        transition-delay: 0.1s;
+    }      
+      
