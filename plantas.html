@@ -9,8 +9,10 @@
         <link type="text/css" href="css/jquery-ui.css" rel="Stylesheet" id="linkestilo" />      
         <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
         <script type="text/javascript" src="js/jquery-ui.js"></script>
+        <script src="js/jquery.countdownTimer.js"></script>
 
         <link rel="stylesheet" href="css/jquery-ui.css">
+        <link rel="stylesheet" href="css/jquery.countdownTimer.css">
         <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
         <style type="text/css">
 
@@ -81,7 +83,7 @@
                     background-image: url(img/fondo2.png);
                 }
             }
-           
+
             html
             {
                 height:100%;
@@ -93,14 +95,14 @@
                 display: inline;
                 alignment-adjust: central;
             }
-             body {
+            body {
                 height: 100%;
                 background-image: url(img/fondo.jpg);
                 background-position: center center;
                 background-repeat: no-repeat;
                 background-attachment: fixed;
                 background-size: cover;
-                
+
 
             }
 
@@ -108,7 +110,7 @@
                 width: 100%;
                 height: 100%;
                 display: inline-block;
-                
+
             }
             #animales{
 
@@ -122,7 +124,7 @@
 
                 width: 68%;
                 height: 90%;
-                
+
                 display: inline-block;
                 /* margin-left: 10px; */
                 padding-left: 10px;
@@ -169,57 +171,86 @@
                 height: 19%;
                 background-size: cover;              
             }
+            #menu{
+                display: inline;  
+                padding-left: 60px;
+
+            }
+            #tiempo,#atras,#puntos{
+                width: 30%;
+                display: inline-block;
+                text-align: center;
+            }
+            img{
+                width: 30px;
+                height: 30px;
+            }
+            #relog{
+                background: inherit;
+                background-color:transparent;
+                }
 
         </style>
-        <script>
+        <script type="text/javascript">
+            var min = 0;
+            var seg = 0;
+            var puntaje=0;
+            function mueveReloj() {
+                if (seg == 59) {
+                    min++;
+                    seg = 0;
+                } else {
+                    seg++;
+                }
+
+                horaImprimible = min + " : " + seg;
+                //console.log(horaImprimible);
+                //document.getElementById('relog').value = horaImprimible;
+                document.getElementById('relog').innerHTML =horaImprimible;
+                
+                
+        setTimeout("mueveReloj()", 1000)
+            }
+            function fin(){
+                
+            }
+
+
+
             $(document).ready(function () {
+                mueveReloj();
                 $(".arrastrable").draggable();
                 $(".arrastrable").draggable({revert: true});
                 $(".arrastrable").data("soltado", false);
                 $(".suelta").data("numsoltar", 0);
                 $(".suelta").droppable({
                     drop: function (event, ui) {
-                        if (!ui.draggable.data("soltado")) {
-                            console.log(ui.class);
+                        if (!ui.draggable.data("soltado")) {                            
                             $(".arrastrable").draggable({revert: false});
                             ui.draggable.data("soltado", true);
-
                             var elem = $(this);
-                            elem.data("numsoltar", elem.data("numsoltar") + 1)
+                            puntaje+=100;
                             //elem.html("Llevo " + elem.data("numsoltar") + " elementos soltados");
+                            document.getElementById('puntaje').innerHTML = puntaje;
                         }
                     },
                     out: function (event, ui) {
                         if (ui.draggable.data("soltado")) {
                             $(".arrastrable").draggable({revert: true});
                             ui.draggable.data("soltado", false);
-                            var elem = $(this);
-                            elem.data("numsoltar", elem.data("numsoltar") - 1);
+                            //var elem = $(this);
+                            //elem.data("numsoltar", elem.data("numsoltar") - 1);
                             //elem.html("Llevo " + elem.data("numsoltar") + " elementos soltados");
                         }
                     }
                 });
 
                 $("#selva").droppable("option", "accept", ".selva");
-                //soltar solo elementos desiertoes
                 $("#bosque").droppable("option", "accept", ".bosque");
-
-                //soltar solo elementos rojos
                 $("#desierto").droppable("option", "accept", ".desierto");
-                //soltar solo elementos desiertoes
                 $("#tundra").droppable("option", "accept", ".tundra");
-                //enlaces para crear nuevos elementos rojos y desiertoes
 
-
-                $(".creaelemento").click(function (e) {
-                    e.preventDefault();
-                    var posx = aleatorio(10, 500);
-                    var posy = aleatorio(80, 200);
-                    var nuevoElemento = $('<div class="' + $(this).attr("href") + ' arrastrable" style="top: ' + posy + 'px; left: ' + posx + 'px;"></div>');
-                    nuevoElemento.draggable();
-                    $(document.body).append(nuevoElemento);
-                });
-            })
+            });
 
 
 
@@ -227,11 +258,13 @@
         </script>
     </head>
     <body>
-        <div class="ui-corner-top ui-widget-header" id="menu">
-            <p>
-                aqui va ir el menu
-            </p>
+        <div class="ui-corner-top " id="menu">
+            <div id="atras"><a href="inicio.html"><img src="img/atras.png"></a></div>  
+            <div id="tiempo"><img src="img/relog.png">
+                <label id="relog"></label>
 
+            </div>  
+            <div id="puntos"><img src="img/puntos.png"><label id="puntaje"></label></div>  
         </div>
         <div class="todo">
             <div class="animales" id="animales">
@@ -301,21 +334,21 @@
             <div  id="habitat">
                 <div id="h1">
                     <div class=" suelta hab" id="selva"  style="background-image:url('img/selva.jpg');">
-                                            
+
                     </div>
                     <!--<div class="ui-widget-header hab suelta" id="droppable" style="background-image:url('img/selva.jpg');">
                         selva                    
                     </div>-->
                     <div class=" suelta hab" id="tundra"  style="background-image:url('img/tundra.jpg');">
-                                          
+
                     </div>
                 </div>
                 <div id="h1">
                     <div  class=" suelta hab" id="desierto" style="background-image:url('img/desierto.jpg');">
-                                            
+
                     </div>
                     <div class=" suelta hab"  id="bosque" style="background-image:url('img/bosque.jpg');">
-                                           
+
                     </div>
                 </div>
             </div>               
