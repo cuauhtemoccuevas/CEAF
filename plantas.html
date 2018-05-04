@@ -75,59 +75,40 @@
                 html, body, .container {
                     height: auto;
                 }
-            }
-
-            body {
-                /* Location of the image */
-                background-image: url(img/fondo.jpg);
-
-                /* Image is centered vertically and horizontally at all times */
-                background-position: center center;
-
-                /* Image doesn't repeat */
-                background-repeat: no-repeat;
-
-                /* Makes the image fixed in the viewport so that it doesn't move when 
-                   the content height is greater than the image height */
-                background-attachment: fixed;
-
-                /* This is what makes the background image rescale based on its container's size */
-                background-size: cover;
-
-                /* Pick a solid background color that will be displayed while the background image is loading */
-                background-color:#464646;
-
-                /* SHORTHAND CSS NOTATION
-                 * background: url(background-photo.jpg) center center cover no-repeat fixed;
-                 */
-            }
-
-            /* For mobile devices */
+            }            /* For mobile devices */
             @media only screen and (max-width: 767px) {
                 body {
                     background-image: url(img/fondo2.png);
                 }
             }
-
-
-            html,body
+           
+            html
             {
                 height:100%;
                 overflow:hidden;
-                background-color:#FFFFFF;
-                font-family:Verdana, Arial, Helvetica, sans-serif;
-                font-size:10px;
+                /*font-family:Verdana, Arial, Helvetica, sans-serif;
+                font-size:10px;*/
                 margin:10px;
                 line-height:16px;
                 display: inline;
                 alignment-adjust: central;
+            }
+             body {
+                height: 100%;
+                background-image: url(img/fondo.jpg);
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+                
+
             }
 
             .todo{
                 width: 100%;
                 height: 100%;
                 display: inline-block;
-                background-color: #007fff;
+                
             }
             #animales{
 
@@ -141,14 +122,14 @@
 
                 width: 68%;
                 height: 90%;
-                background-color: #e0a800;
+                
                 display: inline-block;
                 /* margin-left: 10px; */
                 padding-left: 10px;
             }
 
 
-            
+
             #col1{
                 width: 32%;
                 height: 100%;
@@ -181,34 +162,28 @@
                 width: 100%;
                 height: 90%;
             }
-             .arrastrable{
-            
-            position: relative;
-            width: 100%;
-            height: 19%;
-            background-size: cover;              
-        }
+            .arrastrable{
+
+                position: relative;
+                width: 100%;
+                height: 19%;
+                background-size: cover;              
+            }
 
         </style>
         <script>
             $(document).ready(function () {
-                 $(".arrastrable").draggable();
+                $(".arrastrable").draggable();
                 $(".arrastrable").draggable({revert: true});
                 $(".arrastrable").data("soltado", false);
-                
-                 //soltar solo elementos rojos
-            
-
-                //voy a crear una variable para contar los elementos que estoy soltando
                 $(".suelta").data("numsoltar", 0);
-                //defino elementos donde se puede soltar
                 $(".suelta").droppable({
                     drop: function (event, ui) {
                         if (!ui.draggable.data("soltado")) {
                             console.log(ui.class);
                             $(".arrastrable").draggable({revert: false});
                             ui.draggable.data("soltado", true);
-                            //$( "#draggable" ).draggable({ revert: true });
+
                             var elem = $(this);
                             elem.data("numsoltar", elem.data("numsoltar") + 1)
                             //elem.html("Llevo " + elem.data("numsoltar") + " elementos soltados");
@@ -224,7 +199,7 @@
                         }
                     }
                 });
-                
+
                 $("#selva").droppable("option", "accept", ".selva");
                 //soltar solo elementos desiertoes
                 $("#bosque").droppable("option", "accept", ".bosque");
@@ -235,7 +210,7 @@
                 $("#tundra").droppable("option", "accept", ".tundra");
                 //enlaces para crear nuevos elementos rojos y desiertoes
 
-               
+
                 $(".creaelemento").click(function (e) {
                     e.preventDefault();
                     var posx = aleatorio(10, 500);
@@ -261,18 +236,18 @@
         <div class="todo">
             <div class="animales" id="animales">
                 <div id="col1">
-                    <div class="desierto arrastrable"  style="background-image:url('img/cam.svg');">1                                     
+                    <div class="desierto arrastrable"  style="background-image:url('img/cam.svg');">                                    
                     </div>
-                    <div  class="tundra arrastrable" style="background-image:url('img/foca-tundra.svg');">2
+                    <div  class="tundra arrastrable" style="background-image:url('img/foca-tundra.svg');">
 
                     </div>                
-                    <div  class="selva arrastrable"   style="background-image:url('img/guacamaya-selva.svg');">3
+                    <div  class="selva arrastrable"   style="background-image:url('img/guacamaya-selva.svg');">
 
                     </div>
-                    <div  class="desierto arrastrable" style="background-image:url('img/escorpion-desierto.svg');">4
+                    <div  class="desierto arrastrable" style="background-image:url('img/escorpion-desierto.svg');">
 
                     </div>
-                    <div class="bosque arrastrable" style="background-image:url('img/mapache-bosque.svg');">4
+                    <div class="bosque arrastrable" style="background-image:url('img/mapache-bosque.svg');">
 
                     </div>
 
@@ -280,38 +255,38 @@
 
                 </div>
                 <div id="col1">
-                    <div class="tundra arrastrable" style="background-image:url('img/oso-tundra.svg');">4
+                    <div class="tundra arrastrable" style="background-image:url('img/oso-tundra.svg');">
 
                     </div>
-                    <div  class="desierto arrastrable" style="background-image:url('img/cam.svg');">4
+                    <div  class="desierto arrastrable" style="background-image:url('img/cam.svg');">
 
                     </div>
-                    <div  class="desierto arrastrable" style="background-image:url('img/serpiente-desierto.svg');">4
+                    <div  class="desierto arrastrable" style="background-image:url('img/serpiente-desierto.svg');">
 
                     </div>
-                    <div  class="tundra arrastrable" style="background-image:url('img/pinguino-tundra.svg');">4
+                    <div  class="tundra arrastrable" style="background-image:url('img/pinguino-tundra.svg');">
 
                     </div>
-                    <div  class="selva arrastrable" style="background-image:url('img/leopardo-selva.svg');">4
+                    <div  class="selva arrastrable" style="background-image:url('img/leopardo-selva.svg');">
 
                     </div>
 
                 </div>
                 <div id="col1">
-                    <div  class="desierto arrastrable" style="background-image:url('img/zorro-desierto.svg');">4
+                    <div  class="desierto arrastrable" style="background-image:url('img/zorro-desierto.svg');">
 
 
                     </div>
-                    <div  class="tundra arrastrable" style="background-image:url('img/reno-tundra.svg');">5
+                    <div  class="tundra arrastrable" style="background-image:url('img/reno-tundra.svg');">
 
                     </div>
-                    <div  class="selva arrastrable" style="background-image:url('img/hipopotamo-selva.svg');">6
+                    <div  class="selva arrastrable" style="background-image:url('img/hipopotamo-selva.svg');">
 
                     </div>
-                    <div  class="bosque arrastrable" style="background-image:url('img/buho.svg');">7
+                    <div  class="bosque arrastrable" style="background-image:url('img/buho.svg');">
 
                     </div>
-                    <div  class="selva arrastrable" style="background-image:url('img/chimpance-selva.svg');">8
+                    <div  class="selva arrastrable" style="background-image:url('img/chimpance-selva.svg');">
 
                     </div>
 
@@ -326,21 +301,21 @@
             <div  id="habitat">
                 <div id="h1">
                     <div class=" suelta hab" id="selva"  style="background-image:url('img/selva.jpg');">
-                        selva                    
+                                            
                     </div>
                     <!--<div class="ui-widget-header hab suelta" id="droppable" style="background-image:url('img/selva.jpg');">
                         selva                    
                     </div>-->
                     <div class=" suelta hab" id="tundra"  style="background-image:url('img/tundra.jpg');">
-                        tundra                   
+                                          
                     </div>
                 </div>
                 <div id="h1">
                     <div  class=" suelta hab" id="desierto" style="background-image:url('img/desierto.jpg');">
-                        desierto                    
+                                            
                     </div>
                     <div class=" suelta hab"  id="bosque" style="background-image:url('img/bosque.jpg');">
-                        bosque                    
+                                           
                     </div>
                 </div>
             </div>               
