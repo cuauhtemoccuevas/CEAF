@@ -2,23 +2,14 @@
 <html>
     <head>
         <title>
-            animales
+            PLANTAS
         </title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link type="text/css" href="css/jquery-ui.css" rel="Stylesheet" id="linkestilo" />      
+        <meta name="viewport" content="width=device-width, initial-scale=1" />            
         <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
         <script type="text/javascript" src="js/jquery-ui.js"></script>
-        <script src="js/jquery.countdownTimer.js"></script>
-
-        <link rel="stylesheet" href="css/jquery-ui.css">
-        <link rel="stylesheet" href="css/jquery.countdownTimer.css">
-        <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/jquery-ui.css"> 
         <style type="text/css">
-
-
-
-
             /* Media Queries */
             @media only screen and (max-width: 340px) {
 
@@ -102,8 +93,6 @@
                 background-repeat: no-repeat;
                 background-attachment: fixed;
                 background-size: cover;
-
-
             }
 
             .todo{
@@ -117,21 +106,14 @@
                 height: 90%;
                 width: 30%;
                 display: inline-block;
-
-
             }
             #habitat{      
-
                 width: 68%;
                 height: 90%;
-
                 display: inline-block;
                 /* margin-left: 10px; */
                 padding-left: 10px;
             }
-
-
-
             #col1{
                 width: 32%;
                 height: 100%;
@@ -165,7 +147,6 @@
                 height: 90%;
             }
             .arrastrable{
-
                 position: relative;
                 width: 100%;
                 height: 19%;
@@ -174,7 +155,6 @@
             #menu{
                 display: inline;  
                 padding-left: 60px;
-
             }
             #tiempo,#atras,#puntos{
                 width: 30%;
@@ -188,99 +168,94 @@
             #relog{
                 background: inherit;
                 background-color:transparent;
-                }
-
+            }
         </style>
         <script type="text/javascript">
             var min = 0;
             var seg = 0;
-            var puntaje=0;
+            var puntaje = 0;
+            var correctos=0;
+            var tfinal=0;
+            var cond=false,det=false;            
             function mueveReloj() {
-                if (seg == 59) {
+                if(!det){
+                          if (seg == 59) {
                     min++;
                     seg = 0;
                 } else {
                     seg++;
-                }
-
+                }                    
+                }               
                 horaImprimible = min + " : " + seg;
-                //console.log(horaImprimible);
-                //document.getElementById('relog').value = horaImprimible;
-                document.getElementById('relog').innerHTML =horaImprimible;
-                
-                
-        setTimeout("mueveReloj()", 1000)
+                document.getElementById('relog').innerHTML = horaImprimible;
+                setTimeout("mueveReloj()", 1000)                 
+                }
+            function fin() {
+                $("#dialog").dialog();               
             }
-            function fin(){
-                
-            }
-
-
-
-            $(document).ready(function () {
-                mueveReloj();
+$(document).ready(function () {
                 $(".arrastrable").draggable();
                 $(".arrastrable").draggable({revert: true});
                 $(".arrastrable").data("soltado", false);
-                $(".suelta").data("numsoltar", 0);
                 $(".suelta").droppable({
                     drop: function (event, ui) {
-                        if (!ui.draggable.data("soltado")) {                            
+                        if(!cond){
+                            mueveReloj();
+                        cond=true;
+                    }   
+                        if (!ui.draggable.data("soltado")) {
                             $(".arrastrable").draggable({revert: false});
                             ui.draggable.data("soltado", true);
-                            var elem = $(this);
-                            puntaje+=100;
-                            //elem.html("Llevo " + elem.data("numsoltar") + " elementos soltados");
+                            var a =ui.draggable["0"].id;
+                            $("#"+a).draggable("disable");
+                            correctos++;
+                            puntaje += 100;
                             document.getElementById('puntaje').innerHTML = puntaje;
+                            if(correctos==15){
+                                det=true;
+                                document.getElementById('modpuntos').value=puntaje;                                
+                                document.getElementById('modtiempo').value=min+" : "+seg;
+                                fin();                                
+                            }                          
                         }
                     },
                     out: function (event, ui) {
                         if (ui.draggable.data("soltado")) {
                             $(".arrastrable").draggable({revert: true});
                             ui.draggable.data("soltado", false);
-                            //var elem = $(this);
-                            //elem.data("numsoltar", elem.data("numsoltar") - 1);
-                            //elem.html("Llevo " + elem.data("numsoltar") + " elementos soltados");
                         }
                     }
                 });
-
                 $("#selva").droppable("option", "accept", ".selva");
                 $("#bosque").droppable("option", "accept", ".bosque");
                 $("#desierto").droppable("option", "accept", ".desierto");
                 $("#tundra").droppable("option", "accept", ".tundra");
-
             });
-
-
-
-
         </script>
     </head>
     <body>
         <div class="ui-corner-top " id="menu">
             <div id="atras"><a href="inicio.html"><img src="img/atras.png"></a></div>  
             <div id="tiempo"><img src="img/relog.png">
-                <label id="relog"></label>
-
+                <label id="relog">0:0</label>
             </div>  
-            <div id="puntos"><img src="img/puntos.png"><label id="puntaje"></label></div>  
+            <div id="puntos"><img src="img/puntos.png"><label id="puntaje">0</label></div>  
         </div>
         <div class="todo">
             <div class="animales" id="animales">
                 <div id="col1">
-                    <div class="desierto arrastrable"  style="background-image:url('img/cam.svg');">                                    
+                    <div class="selva arrastrable" id="zapote"  style="background-image:url('img/plantas/zapote-selva.jpg');">                                    
                     </div>
-                    <div  class="tundra arrastrable" style="background-image:url('img/foca-tundra.svg');">
+                    <div  class="tundra arrastrable" id="te" style="background-image:url('img/plantas/te-tundra.jpg');">
 
                     </div>                
-                    <div  class="selva arrastrable"   style="background-image:url('img/guacamaya-selva.svg');">
+                    <div  class="tundra arrastrable"  id="sauce" style="background-image:url('img/plantas/sauce-tundra.jpg');">
 
                     </div>
-                    <div  class="desierto arrastrable" style="background-image:url('img/escorpion-desierto.svg');">
+                    <div  class="selva arrastrable" id="platano" style="background-image:url('img/plantas/platano-selva.jpg');">
 
                     </div>
-                    <div class="bosque arrastrable" style="background-image:url('img/mapache-bosque.svg');">
+                    <div class="bosque arrastrable" id="pino" style="background-image:url('img/plantas/pino-bosque.jpg');">
 
                     </div>
 
@@ -288,73 +263,57 @@
 
                 </div>
                 <div id="col1">
-                    <div class="tundra arrastrable" style="background-image:url('img/oso-tundra.svg');">
+                    <div class="selva arrastrable" id="orquidea" style="background-image:url('img/plantas/orquidea-selva.jpg');">
 
                     </div>
-                    <div  class="desierto arrastrable" style="background-image:url('img/cam.svg');">
+                    <div  class="bosque arrastrable" id="miconia" style="background-image:url('img/plantas/Miconia_papillosa-bosque.jpg');">
 
                     </div>
-                    <div  class="desierto arrastrable" style="background-image:url('img/serpiente-desierto.svg');">
+                    <div  class="tundra arrastrable" id="genciana" style="background-image:url('img/plantas/genciana-tundra.jpg');">
 
                     </div>
-                    <div  class="tundra arrastrable" style="background-image:url('img/pinguino-tundra.svg');">
+                    <div  class="bosque arrastrable" id="Eupatorium" style="background-image:url('img/plantas/Eupatorium-bosque.jpg');">
 
                     </div>
-                    <div  class="selva arrastrable" style="background-image:url('img/leopardo-selva.svg');">
+                    <div  class="selva arrastrable" id="cafe" style="background-image:url('img/plantas/cafe-selva.jpg');">
 
                     </div>
 
                 </div>
                 <div id="col1">
-                    <div  class="desierto arrastrable" style="background-image:url('img/zorro-desierto.svg');">
-
-
+                    <div  class="desierto arrastrable" id="cactus" style="background-image:url('img/plantas/cactus-desierto.jpg');">
                     </div>
-                    <div  class="tundra arrastrable" style="background-image:url('img/reno-tundra.svg');">
-
+                    <div  class="selva arrastrable" id="cacao" style="background-image:url('img/plantas/cacao-selva.jpg');">
                     </div>
-                    <div  class="selva arrastrable" style="background-image:url('img/hipopotamo-selva.svg');">
-
+                    <div  class="selva arrastrable" id="bromelia" style="background-image:url('img/plantas/bromelia-selva.jpg');">
                     </div>
-                    <div  class="bosque arrastrable" style="background-image:url('img/buho.svg');">
-
+                    <div  class="desierto arrastrable" id="arbol" style="background-image:url('img/plantas/arbol-josue-desierto.jpg');">
                     </div>
-                    <div  class="selva arrastrable" style="background-image:url('img/chimpance-selva.svg');">
-
+                    <div  class="desierto arrastrable" id="agave" style="background-image:url('img/plantas/agave-desierto.jpg');">
                     </div>
-
                 </div>
             </div>
-
-
-
-
-
-
             <div  id="habitat">
                 <div id="h1">
                     <div class=" suelta hab" id="selva"  style="background-image:url('img/selva.jpg');">
-
                     </div>
-                    <!--<div class="ui-widget-header hab suelta" id="droppable" style="background-image:url('img/selva.jpg');">
-                        selva                    
-                    </div>-->
                     <div class=" suelta hab" id="tundra"  style="background-image:url('img/tundra.jpg');">
-
                     </div>
                 </div>
                 <div id="h1">
                     <div  class=" suelta hab" id="desierto" style="background-image:url('img/desierto.jpg');">
-
                     </div>
                     <div class=" suelta hab"  id="bosque" style="background-image:url('img/bosque.jpg');">
-
                     </div>
                 </div>
             </div>               
         </div>
-
-
-
+<div id="dialog" title="FELICIDADES">
+    <p>total de puntos obtenidos:</p>
+    <input type="text" id="modpuntos" name="puntos" readonly /><br>
+     <p>tiempo total:</p>
+    <input type="text" id="modtiempo" name="tiempo" readonly/><br>
+    <a href="plantas.html">jugar otra vez</a>
+</div>
     </body>
 </html>

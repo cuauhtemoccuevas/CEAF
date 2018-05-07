@@ -1,65 +1,313 @@
-<!DOCTYPE doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            animales
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />            
+        <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.js"></script>
+        <link rel="stylesheet" href="css/jquery-ui.css"> 
+        <style type="text/css">
+            /* Media Queries */
+            @media only screen and (max-width: 340px) {
 
-    <meta charset="utf-8">
-    <title>
-        Responsive Full Background Image
-    </title>
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <meta content="Six Revisions" name="author">
-    <meta content="How to use the CSS background-size property to make an image fully span the entire viewport." name="description">
-    <link href="presentational-only/presentational-only.css" rel="stylesheet">
-    <link href="css/responsive-full-background-image.css" rel="stylesheet">
-    <script src="js/jquery-3.3.1.js">
-    </script>
-    <script src="presentational-only/presentational-only.js">
-    </script>
+                .container {
+                    position: relative;
+                    display: block;
+                    float: left;
+                    vertical-align: baseline;
+                    margin: 0 auto;
+                    padding: 80px 0 0 0;
+                }
 
+                #more-content {
+                    float: left;
+                    margin-right: 10px;
+
+                }
+
+                body h1 {
+                    font-size: 18px;
+                    line-height: 23px;
+                } 
+
+                .content, blockquote {  
+                    display: inline;
+                    margin: 0 auto;
+                    padding-top: 80px;
+                    vertical-align: baseline;
+                }
+
+                blockquote {
+                    width: 150px;
+                    margin: 15px auto;
+                    font-size: 16px;
+                    line-height: 21px;
+                    background-color: transparent;
+                }
+
+                blockquote cite {
+                    font-size: 14px;
+                    line-height: 19px;
+                }
+
+                .sub-title {
+                    font-size: 14px;
+                    line-height: 21px;
+                }
+
+                .button, p {
+                    max-width: 150px;
+                    margin: 0 auto;
+                    font-size: 15px;
+                    line-height: 20px;
+                }
+
+                html, body, .container {
+                    height: auto;
+                }
+            }            /* For mobile devices */
+            @media only screen and (max-width: 767px) {
+                body {
+                    background-image: url(img/fondo2.png);
+                }
+            }
+
+            html
+            {
+                height:100%;
+                overflow:hidden;
+                /*font-family:Verdana, Arial, Helvetica, sans-serif;
+                font-size:10px;*/
+                margin:10px;
+                line-height:16px;
+                display: inline;
+                alignment-adjust: central;
+            }
+            body {
+                height: 100%;
+                background-image: url(img/fondo.jpg);
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+
+            .todo{
+                width: 100%;
+                height: 100%;
+                display: inline-block;
+
+            }
+            #animales{
+
+                height: 90%;
+                width: 30%;
+                display: inline-block;
+            }
+            #habitat{      
+                width: 68%;
+                height: 90%;
+                display: inline-block;
+                /* margin-left: 10px; */
+                padding-left: 10px;
+            }
+            #col1{
+                width: 32%;
+                height: 100%;
+                display: inline-block;
+            }
+            #animal{
+                width: 100%;
+                height: 24%;
+            }
+
+            div.desc {
+                padding: 15px;
+                text-align: center;
+            }
+            #h1{
+                display: inline-block;
+                width: 100%;
+                height: 50%;
+                padding-top: 10px;                 
+
+            }
+            .hab{
+                display: inline-block;
+                width: 49%;
+                height: 90%;
+                background-size: cover;
+
+            }
+            .fond{
+                width: 100%;
+                height: 90%;
+            }
+            .arrastrable{
+                position: relative;
+                width: 100%;
+                height: 19%;
+                background-size: cover;              
+            }
+            #menu{
+                display: inline;  
+                padding-left: 60px;
+            }
+            #tiempo,#atras,#puntos{
+                width: 30%;
+                display: inline-block;
+                text-align: center;
+            }
+            img{
+                width: 30px;
+                height: 30px;
+            }
+            #relog{
+                background: inherit;
+                background-color:transparent;
+            }
+        </style>
+        <script type="text/javascript">
+            var min = 0;
+            var seg = 0;
+            var puntaje = 0;
+            var correctos=0;
+            var tfinal=0;
+            var cond=false,det=false;            
+            function mueveReloj() {
+                if(!det){
+                          if (seg == 59) {
+                    min++;
+                    seg = 0;
+                } else {
+                    seg++;
+                }                    
+                }               
+                horaImprimible = min + " : " + seg;
+                document.getElementById('relog').innerHTML = horaImprimible;
+                setTimeout("mueveReloj()", 1000)                 
+                }
+            function fin() {
+                $("#dialog").dialog();               
+            }
+$(document).ready(function () {
+                $(".arrastrable").draggable();
+                $(".arrastrable").draggable({revert: true});
+                $(".arrastrable").data("soltado", false);
+                $(".suelta").droppable({
+                    drop: function (event, ui) {
+                        if(!cond){
+                            mueveReloj();
+                        cond=true;
+                    }   
+                        if (!ui.draggable.data("soltado")) {
+                            $(".arrastrable").draggable({revert: false});
+                            ui.draggable.data("soltado", true);
+                            var a =ui.draggable["0"].id;
+                            $("#"+a).draggable("disable");
+                            correctos++;
+                            puntaje += 100;
+                            document.getElementById('puntaje').innerHTML = puntaje;
+                            if(correctos==15){
+                                det=true;
+                                document.getElementById('modpuntos').value=puntaje;                                
+                                document.getElementById('modtiempo').value=min+" : "+seg;
+                                fin();                                
+                            }                          
+                        }
+                    },
+                    out: function (event, ui) {
+                        if (ui.draggable.data("soltado")) {
+                            $(".arrastrable").draggable({revert: true});
+                            ui.draggable.data("soltado", false);
+                        }
+                    }
+                });
+                $("#selva").droppable("option", "accept", ".selva");
+                $("#bosque").droppable("option", "accept", ".bosque");
+                $("#desierto").droppable("option", "accept", ".desierto");
+                $("#tundra").droppable("option", "accept", ".tundra");
+            });
+        </script>
+    </head>
     <body>
-        <nav class="navbar" id="top">
-            <div class="inner">
-                <a>
-                    Read Tutorial
-                </a>
-            </div>
-        </nav>
-        <header class="container">
-            <section class="content">
-                <div class="animales" id="animales">
-                    <div id="col1">
-                        <img  id="animal" src="img/ciervo-selva.svg">
-                        <img id="animal" src="img/cam.svg">
-                        <img id="animal"  src="img/chimpance-selva.svg">
-                        <img id="animal" src="img/buho.svg">
+        <div class="ui-corner-top " id="menu">
+            <div id="atras"><a href="inicio.html"><img src="img/atras.png"></a></div>  
+            <div id="tiempo"><img src="img/relog.png">
+                <label id="relog">0:0</label>
+            </div>  
+            <div id="puntos"><img src="img/puntos.png"><label id="puntaje">0</label></div>  
+        </div>
+        <div class="todo">
+            <div class="animales" id="animales">
+                <div id="col1">
+                    <div class="desierto arrastrable" id="camello"  style="background-image:url('img/animales/cam.svg');">                                    
                     </div>
-                    <div id="col1">
-                        <img  id="animal" src="img/ciervo-selva.svg">
-                        <img id="animal" src="img/cam.svg">
-                        <img id="animal"  src="img/chimpance-selva.svg">
-                        <img id="animal" src="img/buho.svg">
+                    <div  class="tundra arrastrable" id="foca" style="background-image:url('img/animales/foca-tundra.svg');">
+
+                    </div>                
+                    <div  class="selva arrastrable"  id="guacamaya" style="background-image:url('img/animales/guacamaya-selva.svg');">
+
                     </div>
-                    <div id="col1">
-                        <img  id="animal" src="img/ciervo-selva.svg">
-                        <img id="animal" src="img/cam.svg">
-                        <img id="animal"  src="img/chimpance-selva.svg">
-                        <img id="animal" src="img/buho.svg">
+                    <div  class="desierto arrastrable" id="escorpion" style="background-image:url('img/animales/escorpion-desierto.svg');">
+
                     </div>
-                    <div id="col1">
-                        <img  id="animal" src="img/ciervo-selva.svg">
-                        <img id="animal" src="img/cam.svg">
-                        <img id="animal"  src="img/chimpance-selva.svg">
-                        <img id="animal" src="img/buho.svg">
+                    <div class="bosque arrastrable" id="mapache" style="background-image:url('img/animales/mapache-bosque.svg');">
+                    </div>
+
+
+
+                </div>
+                <div id="col1">
+                    <div class="tundra arrastrable" id="oso" style="background-image:url('img/animales/oso-tundra.svg');">
+                    </div>
+                    <div  class="selva arrastrable" id="hormiguero" style="background-image:url('img/animales/oso-hormiguero-selva.svg');">
+                    </div>
+                    <div  class="desierto arrastrable" id="serpiente" style="background-image:url('img/animales/serpiente-desierto.svg');">
+                    </div>
+                    <div  class="tundra arrastrable" id="pinguino" style="background-image:url('img/animales/pinguino-tundra.svg');">
+                    </div>
+                    <div  class="selva arrastrable" id="leopardo" style="background-image:url('img/animales/leopardo-selva.svg');">
                     </div>
 
                 </div>
-
-                <div id="habitat">
-                    <img id="tundra" src="img/tundra.jpg"> 
-                    <img id="tundra" src="img/tundra.jpg">                  
-                    <img id="desierto" src="img/desierto.jpg">
-                    <img id="desierto" src="img/desierto.jpg">         
-                </div> 
-            </section>
-        </header>
+                <div id="col1">
+                    <div  class="desierto arrastrable" id="zorro" style="background-image:url('img/animales/zorro-desierto.svg');">
+                    </div>
+                    <div  class="tundra arrastrable" id="reno" style="background-image:url('img/animales/reno-tundra.svg');">
+                    </div>
+                    <div  class="selva arrastrable" id="hipopotamo" style="background-image:url('img/animales/hipopotamo-selva.svg');">
+                    </div>
+                    <div  class="bosque arrastrable" id="buho" style="background-image:url('img/animales/buho.svg');">
+                    </div>
+                    <div  class="selva arrastrable" id="chimpance" style="background-image:url('img/animales/chimpance-selva.svg');">
+                    </div>
+                </div>
+            </div>
+            <div  id="habitat">
+                <div id="h1">
+                    <div class=" suelta hab" id="selva"  style="background-image:url('img/selva.jpg');">
+                    </div>
+                    <div class=" suelta hab" id="tundra"  style="background-image:url('img/tundra.jpg');">
+                    </div>
+                </div>
+                <div id="h1">
+                    <div  class=" suelta hab" id="desierto" style="background-image:url('img/desierto.jpg');">
+                    </div>
+                    <div class=" suelta hab"  id="bosque" style="background-image:url('img/bosque.jpg');">
+                    </div>
+                </div>
+            </div>               
+        </div>
+<div id="dialog" title="FELICIDADES">
+    <p>total de puntos obtenidos:</p>
+    <input type="text" id="modpuntos" name="puntos" readonly/><br>
+     <p>tiempo total:</p>
+    <input type="text" id="modtiempo" name="tiempo" readonly/><br>
+    <a href="animales.html">jugar otra vez</a>
+</div>
     </body>
 </html>
