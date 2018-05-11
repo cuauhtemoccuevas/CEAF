@@ -1,505 +1,484 @@
 @font-face {
-        font-family: courgette;
-        src: url(../font/Courgette-Regular.ttf);
-       }
-    
-body{
-        font-size: 15px;
-        font-family: courgette;
-/*         background: rgba(98,125,77,1);
-        background: -moz-linear-gradient(left, rgba(98,125,77,1) 0%, rgba(31,59,8,1) 100%);
-        background: -webkit-gradient(left top, right top, color-stop(0%, rgba(98,125,77,1)), color-stop(100%, rgba(31,59,8,1)));
-        background: -webkit-linear-gradient(left, rgba(98,125,77,1) 0%, rgba(31,59,8,1) 100%);
-        background: -o-linear-gradient(left, rgba(98,125,77,1) 0%, rgba(31,59,8,1) 100%);
-        background: -ms-linear-gradient(left, rgba(98,125,77,1) 0%, rgba(31,59,8,1) 100%);
-        background: linear-gradient(to right, rgba(98,125,77,1) 0%, rgba(31,59,8,1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#627d4d', endColorstr='#1f3b08', GradientType=1 ); */
-    }
+    font-family: courgette;
+    src: url(../font/Courgette-Regular.ttf);
+}
 
-    nivel{
-        background-image: url(../img/fondo.jpg); background-repeat: no-repeat; background-size: cover;
+body {
+    font-size: 15px;
+    font-family: courgette;
+}
+
+/*INDEX*/
+
+.padre {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cargando {
+    width: 800px;
+    height: 800px;
+}
+
+#title-cargando {
+    margin: 0;
+    position: absolute;
+    bottom: 100px;
+    color: rgb(13, 18, 83);
+    font-size: 2em;
+    padding: 1em 0 1em 2.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px){
+    #cargando {
+        width: 1000px;
+        height: 1000px;
     }
     
-    .title-nivel{
-        color: #FFF;
+    #title-cargando {
+        position: absolute;
+        bottom: 170px;
+        color: red;
+        font-size: 2em;
+        padding: 1em 0 0 1.2em;
+        font-weight: bold;
+        text-align: center;
+    }
+}
+
+
+
+/*INICIO*/
+
+nivel {
+    background-image: url(../img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.title-nivel {
+    color: #FFF;
     padding: 1.5em;
-        margin-bottom: 2em;
-        background-color:rgba(3, 3, 3, .8);
-    }
-    
-    img{
+    margin-bottom: 2em;
+    background-color: rgba(3, 3, 3, .8);
+}
+
+img {
     width: 80%;
     height: 80%;
-        border-radius:54px;
+    border-radius: 54px;
     margin: 0 auto;
-    }
-    
-    .img-opcion{
-        text-align: center;
-    
-    }
-    
-    .opcion{
-        color: #000;
-        font-size: 2em;
-    }
-    
-    .efecto img{
-        transition: all 0.2s ease-in-out;
-    }
-    
-    .mascara{
-        position: relative;
-        top: -54px;
-        opacity: 0;
-        background-color: rgba(46,157,120,0.7);
-        transition: all 0.4s easy-in-out;
-        margin: 0 auto;
-        border-radius: 0px 0px 54px 54px; 
-        width: 88%;
+}
+
+.img-opcion {
+    text-align: center;
+}
+
+.opcion {
+    color: #000;
+    font-size: 2em;
+}
+
+.efecto img {
+    transition: all 0.2s ease-in-out;
+}
+
+.mascara {
+    position: relative;
+    top: -54px;
+    opacity: 0;
+    background-color: rgba(46, 157, 120, 0.7);
+    transition: all 0.4s easy-in-out;
+    margin: 0 auto;
+    border-radius: 0px 0px 54px 54px;
+    width: 88%;
     /*height: 88%;*/
+    color: #FFF;
+}
+
+.efecto h2 {
+    opacity: 0;
+    transition: all 0.7s ease-in-out;
+}
+
+.efecto p {
+    transform: translateX(200px);
+    opacity: 0;
+    transition: all 0.4s linear;
+}
+
+/*Zoom*/
+
+.efecto:hover img {
+    transform: scale(1.1);
+}
+
+.efecto:hover h2,
+.efecto:hover p,
+.efecto:hover .mascara {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.efecto:hover p {
+    transition-delay: 0.1s;
+}
+
+/*PAGINAS JUEGO*/
+
+@media only screen and (max-width: 480px) {
+    html {
+        height: 100%;
+        overflow: hidden;
+    }
+    body {
+        margin: 0;
+        height: 100%;
+    }
+    .todo {
+        width: 100%;
+        height: 100%;
+    }
+    #animales {
+        height: 30%;
+        width: 98%;
+    }
+    #habitat {
+        width: 100%;
+        height: 60%;
+    }
+    #col1 {
+        width: 100%;
+        height: 33%;
+    }
+    #h1 {
+        border: 2px solid #FFF;
+        display: inline-block;
+        width: 100%;
+        height: 50%;
+    }
+    .hab {
+        display: inline-block;
+        width: 48%;
+        height: 100%;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        border: 2px solid #444;
+    }
+    .arrastrable {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background-size: cover;
+        background-size: 60%;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    .arrastrable:hover {
+        border-radius: 25%;
+        background: rgba(45, 82, 112, 0.5);
+        border-top: 3px solid rgb(6, 46, 36);
+        border-bottom: 3px solid rgb(6, 46, 36);
+        background-size: cover;
+        background-size: 90%;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    #menu {
+        margin: 0;
+        background: rgba(12, 21, 29, 0.5);
+        padding: .6em 0;
+        font-size: 1.3em;
         color: #FFF;
     }
-    
-    .efecto h2{
-    opacity: 0;
-        transition: all 0.7s ease-in-out;
+    #tiempo,
+    #atras,
+    #puntos,
+    #icono_menu {
+        width: 22%;
+        display: inline-block;
+        text-align: center;
     }
-    
-    .efecto p{
-        transform: translateX(200px);
-        opacity: 0;
-        transition: all 0.4s linear;
+    #menu img {
+        width: 30px;
+        height: 30px;
     }
-    
-    /*Zoom*/
-    .efecto:hover img{
-        transform: scale(1.1);
+    .fa {
+        color: #FFF;
     }
-
-    .efecto:hover h2,
-    .efecto:hover p,
-    .efecto:hover .mascara{
-    opacity: 1;
-        transform: translateX(0px);
+    #relog {
+        background: inherit;
+        background-color: transparent;
     }
-    
-    .efecto:hover p{
-        transition-delay: 0.1s;
-    }      
-      
-
-    /*PAGINAS JUEGO*/
-    @media only screen and (max-width: 480px) {
-
-        html {
-            height: 100%;
-            overflow: hidden;
-        }
-
-        body {
-            margin: 0;
-            height: 100%;
-        }
-
-        .todo {
-            width: 100%;
-            height: 100%;
-        }
-
-        #animales {
-            height: 30%;
-            width: 98%;
-        }
-
-        #habitat {
-            width: 100%;
-            height: 60%;
-        }
-
-        #col1 {
-            width: 100%;
-            height: 33%;
-        }
-
-        #h1 {
-            border: 2px solid #FFF;
-            display: inline-block;
-            width: 100%;
-            height: 50%;
-        }
-
-        .hab {
-            display: inline-block;
-            width: 48%;
-            height: 100%;
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: 100%;
-            border: 2px solid #444;
-        }
-
-        .arrastrable {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background-size: cover;
-            background-size: 60%;
-            background-position: center center;
-            background-repeat: no-repeat;
-        }
-
-        .arrastrable:hover {
-            border-radius: 25%;
-            background: rgba(45, 82, 112, 0.5);
-            border-top: 3px solid rgb(6, 46, 36);
-            border-bottom: 3px solid rgb(6, 46, 36);
-            background-size: cover;
-            background-size: 90%;
-            background-position: center center;
-            background-repeat: no-repeat;
-        }
-
-        #menu {
-            margin: 0;
-            background: rgba(12, 21, 29, 0.5);
-            padding: .6em 0;
-            font-size: 1.3em;
-            color: #FFF;
-        }
-
-        #tiempo,
-        #atras,
-        #puntos,
-        #icono_menu {
-            width: 22%;
-            display: inline-block;
-            text-align: center;
-        }
-
-        #menu img {
-            width: 30px;
-            height: 30px;
-        }
-
-        .fa {
-            color: #FFF;
-        }
-
-        #relog {
-            background: inherit;
-            background-color: transparent;
-        }
-
-                    #modpuntos,#modtiempo{
-            width: 100%;
-            text-align: center;
-        }
-
-        #nuevo{
-            margin-top: 2em;
-            display: block;
-            padding: 1em 0;
-            width: 100%;
-            background: rgb(7, 56, 63);
-            color: #FFF;
-            text-align: center;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        #nuevo:hover{
-            background: rgb(9, 72, 82);
-            color: orange;
-            font: bold;
-            text-transform: uppercase;
-        }
+    #modpuntos,
+    #modtiempo {
+        width: 100%;
+        text-align: center;
     }
-
-    @media only screen and (min-width: 481px) and (max-width: 768px) {
-
-
-        html {
-            height: 100%;
-            overflow: hidden;
-        }
-
-        body {
-            margin: 0;
-            height: 100%;
-        }
-
-        .todo {
-            width: 100%;
-            height: 100%;
-        }
-
-        #animales {
-            height: 30%;
-            width: 100%;
-        }
-
-        #habitat {
-            width: 100%;
-            height: 60%;
-        }
-
-        #col1 {
-            width: 100%;
-            height: 33%;
-        }
-
-        #h1 {
-            border: 2px solid #FFF;
-            display: inline-block;
-            width: 100%;
-            height: 50%;
-        }
-
-        .hab {
-            display: inline-block;
-            width: 48%;
-            height: 100%;
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: 100%;
-            border: 2px solid #444;
-        }
-
-        .arrastrable {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background-size: cover;
-            background-size: 60%;
-            background-position: center center;
-            background-repeat: no-repeat;
-            margin: 0 1.2em;
-        }
-
-        .arrastrable:hover {
-            border-radius: 25%;
-            background: rgba(45, 82, 112, 0.5);
-            border-top: 3px solid rgb(6, 46, 36);
-            border-bottom: 3px solid rgb(6, 46, 36);
-            background-size: cover;
-            background-size: 90%;
-            background-position: center center;
-            background-repeat: no-repeat;
-        }
-
-        #menu {
-            margin: 0;
-            background: rgba(12, 21, 29, 0.5);
-            padding: .6em 0;
-            font-size: 1.3em;
-            color: #FFF;
-        }
-
-        #tiempo,
-        #atras,
-        #puntos,
-        #icono_menu {
-            width: 22%;
-            display: inline-block;
-            text-align: center;
-        }
-
-        #menu img {
-            width: 30px;
-            height: 30px;
-        }
-
-        .fa {
-            color: #FFF;
-        }
-
-        #relog {
-            background: inherit;
-            background-color: transparent;
-        }
-
-                    #modpuntos,#modtiempo{
-            width: 100%;
-            text-align: center;
-        }
-
-        #nuevo{
-            margin-top: 2em;
-            display: block;
-            padding: 1em 0;
-            width: 100%;
-            background: rgb(7, 56, 63);
-            color: #FFF;
-            text-align: center;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        #nuevo:hover{
-            background: rgb(9, 72, 82);
-            color: orange;
-            font: bold;
-            text-transform: uppercase;
-        }
+    #nuevo {
+        margin-top: 2em;
+        display: block;
+        padding: 1em 0;
+        width: 100%;
+        background: rgb(7, 56, 63);
+        color: #FFF;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
     }
-
-    @media only screen and (min-width: 769px) {
-        html {
-            max-width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        body {
-            margin: 0;
-            max-width: 100%;
-            height: 100%;
-        }
-
-        .todo {
-            width: 100%;
-            height: 100%;
-            display: inline-block;
-
-        }
-
-        #animales {
-
-            height: 90%;
-            width: 30%;
-            display: inline-block;
-        }
-
-        #habitat {
-
-            width: 68%;
-            height: 90%;
-            display: inline-block;
-            /* margin-left: 10px; */
-            padding-left: 10px;
-
-        }
-
-        #col1 {
-            width: 32%;
-            height: 100%;
-            display: inline-block;
-        }
-
-        #animal {
-            width: 100%;
-            height: 24%;
-        }
-
-        div.desc {
-            padding: 15px;
-            text-align: center;
-        }
-
-        #h1 {
-            border: 2px solid #FFF;
-            display: inline-block;
-            width: 100%;
-            height: 50%;
-        }
-
-        .hab {
-            display: inline-block;
-            width: 49%;
-            height: 90%;
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: 100%;
-            border: 2px solid #444;
-        }
-
-        .fond {
-            width: 100%;
-            height: 90%;
-        }
-
-        .arrastrable {
-            position: relative;
-            width: 80px;
-            height: 80px;
-            background-size: cover;
-            background-size: 70%;
-            background-position: center center;
-            background-repeat: no-repeat;
-            margin: 1em auto;
-        }
-
-        .arrastrable:hover {
-            border-radius: 25%;
-            background: rgba(45, 82, 112, 0.5);
-            border-top: 3px solid rgb(6, 46, 36);
-            border-bottom: 3px solid rgb(6, 46, 36);
-            background-size: cover;
-            background-size: 90%;
-            background-position: center center;
-            background-repeat: no-repeat;
-        }
-
-
-
-        #menu {
-            margin: 0;
-            padding-left: 60px;
-            background: rgba(12, 21, 29, 0.5);
-            padding: .6em 0;
-            font-size: 1.3em;
-            color: #FFF;
-        }
-
-        #tiempo,
-        #atras,
-        #puntos,
-        #icono_menu {
-            width: 24%;
-            display: inline-block;
-            text-align: center;
-        }
-
-        #menu img {
-            width: 30px;
-            height: 30px;
-        }
-
-        .fa {
-            color: #FFF;
-        }
-
-        #relog {
-            background: inherit;
-            background-color: transparent;
-        }
-
-        #modpuntos,#modtiempo{
-            width: 100%;
-            text-align: center;
-        }
-
-        #nuevo{
-            margin-top: 2em;
-            display: block;
-            padding: 1em 0;
-            width: 100%;
-            background: rgb(7, 56, 63);
-            color: #FFF;
-            text-align: center;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        #nuevo:hover{
-            background: rgb(9, 72, 82);
-            color: orange;
-            font: bold;
-            text-transform: uppercase;
-        }
-
+    #nuevo:hover {
+        background: rgb(9, 72, 82);
+        color: orange;
+        font: bold;
+        text-transform: uppercase;
     }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    html {
+        height: 100%;
+        overflow: hidden;
+    }
+    body {
+        margin: 0;
+        height: 100%;
+    }
+    .todo {
+        width: 100%;
+        height: 100%;
+    }
+    #animales {
+        height: 30%;
+        width: 100%;
+    }
+    #habitat {
+        width: 100%;
+        height: 60%;
+    }
+    #col1 {
+        width: 100%;
+        height: 33%;
+    }
+    #h1 {
+        border: 2px solid #FFF;
+        display: inline-block;
+        width: 100%;
+        height: 50%;
+    }
+    .hab {
+        display: inline-block;
+        width: 48%;
+        height: 100%;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        border: 2px solid #444;
+    }
+    .arrastrable {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background-size: cover;
+        background-size: 60%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        margin: 0 1.2em;
+    }
+    .arrastrable:hover {
+        border-radius: 25%;
+        background: rgba(45, 82, 112, 0.5);
+        border-top: 3px solid rgb(6, 46, 36);
+        border-bottom: 3px solid rgb(6, 46, 36);
+        background-size: cover;
+        background-size: 90%;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    #menu {
+        margin: 0;
+        background: rgba(12, 21, 29, 0.5);
+        padding: .6em 0;
+        font-size: 1.3em;
+        color: #FFF;
+    }
+    #tiempo,
+    #atras,
+    #puntos,
+    #icono_menu {
+        width: 22%;
+        display: inline-block;
+        text-align: center;
+    }
+    #menu img {
+        width: 30px;
+        height: 30px;
+    }
+    .fa {
+        color: #FFF;
+    }
+    #relog {
+        background: inherit;
+        background-color: transparent;
+    }
+    #modpuntos,
+    #modtiempo {
+        width: 100%;
+        text-align: center;
+    }
+    #nuevo {
+        margin-top: 2em;
+        display: block;
+        padding: 1em 0;
+        width: 100%;
+        background: rgb(7, 56, 63);
+        color: #FFF;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    #nuevo:hover {
+        background: rgb(9, 72, 82);
+        color: orange;
+        font: bold;
+        text-transform: uppercase;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    html {
+        max-width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    body {
+        margin: 0;
+        max-width: 100%;
+        height: 100%;
+    }
+    .todo {
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+    }
+    #animales {
+        height: 90%;
+        width: 30%;
+        display: inline-block;
+    }
+    #habitat {
+        width: 68%;
+        height: 90%;
+        display: inline-block;
+        /* margin-left: 10px; */
+        padding-left: 10px;
+    }
+    #col1 {
+        width: 32%;
+        height: 100%;
+        display: inline-block;
+    }
+    #animal {
+        width: 100%;
+        height: 24%;
+    }
+    div.desc {
+        padding: 15px;
+        text-align: center;
+    }
+    #h1 {
+        border: 2px solid #FFF;
+        display: inline-block;
+        width: 100%;
+        height: 50%;
+    }
+    .hab {
+        display: inline-block;
+        width: 49%;
+        height: 90%;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        border: 2px solid #444;
+    }
+    .fond {
+        width: 100%;
+        height: 90%;
+    }
+    .arrastrable {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        background-size: cover;
+        background-size: 70%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        margin: 1em auto;
+    }
+    .arrastrable:hover {
+        border-radius: 25%;
+        background: rgba(45, 82, 112, 0.5);
+        border-top: 3px solid rgb(6, 46, 36);
+        border-bottom: 3px solid rgb(6, 46, 36);
+        background-size: cover;
+        background-size: 90%;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    #menu {
+        margin: 0;
+        padding-left: 60px;
+        background: rgba(12, 21, 29, 0.5);
+        padding: .6em 0;
+        font-size: 1.3em;
+        color: #FFF;
+    }
+    #tiempo,
+    #atras,
+    #puntos,
+    #icono_menu {
+        width: 24%;
+        display: inline-block;
+        text-align: center;
+    }
+    #menu img {
+        width: 30px;
+        height: 30px;
+    }
+    .fa {
+        color: #FFF;
+    }
+    #relog {
+        background: inherit;
+        background-color: transparent;
+    }
+    #modpuntos,
+    #modtiempo {
+        width: 100%;
+        text-align: center;
+    }
+    #nuevo {
+        margin-top: 2em;
+        display: block;
+        padding: 1em 0;
+        width: 100%;
+        background: rgb(7, 56, 63);
+        color: #FFF;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    #nuevo:hover {
+        background: rgb(9, 72, 82);
+        color: orange;
+        font: bold;
+        text-transform: uppercase;
+    }
+}

@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title></title>
-        <meta charset="utf-8">
-        <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
-        <script type="text/javascript" src="js/jquery-ui.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
-    </head>
-    <body>
-        
-        <script type="text/javascript">
-            $(function (argument) {
-                alert("animando");
-                location.href = "inicio.html";
-            })
-        </script>
-    </body>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="animate/animate.js"></script>
+</head>
+
+<body>
+    <div class="padre">
+            <iframe id="cargando" src="animate/animate.html" frameborder="0">
+            </iframe>
+            <p id="title-cargando">Cargando...</p>
+    </div>
+</body>
+
+<script>
+    function redireccionarPagina() {
+        window.location = "inicio.html";
+    }
+    setTimeout("redireccionarPagina()", 7000);
+</script>
+
 </html>

@@ -2,7 +2,6 @@
 
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
-var rect; // used to reference frame bounds
 lib.ssMetadata = [];
 
 
@@ -79,7 +78,7 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_11},{t:this.shape_10},{t:this.shape_9},{t:this.shape_8},{t:this.shape_7},{t:this.shape_6},{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape}]}).wait(1));
 
-}).prototype = getMCSymbolPrototype(lib.face, rect = new cjs.Rectangle(-175,-192.1,359.2,380.9), [rect]);
+}).prototype = getMCSymbolPrototype(lib.face, new cjs.Rectangle(-175,-192.1,359.2,380.9), null);
 
 
 // stage content:
@@ -118,8 +117,7 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape},{t:this.instance,p:{regX:4.5,regY:-1.7,rotation:0,x:727.6,y:308.6}}]}).to({state:[{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape},{t:this.instance,p:{regX:4.6,regY:-1.6,rotation:-37.2,x:727.7,y:308.6}}]},1).to({state:[{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape},{t:this.instance,p:{regX:4.6,regY:-1.6,rotation:-90.9,x:727.7,y:308.6}}]},4).to({state:[{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape},{t:this.instance,p:{regX:4.5,regY:-1.7,rotation:-135.9,x:727.6,y:308.7}}]},5).to({state:[{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape},{t:this.instance,p:{regX:4.5,regY:-1.7,rotation:179.1,x:727.7,y:308.7}}]},5).to({state:[{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape},{t:this.instance,p:{regX:4.5,regY:-1.6,rotation:142.4,x:727.7,y:308.5}}]},5).to({state:[{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape},{t:this.instance,p:{regX:4.5,regY:-1.7,rotation:90.2,x:727.8,y:308.5}}]},5).to({state:[{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape},{t:this.instance,p:{regX:4.5,regY:-1.6,rotation:45.2,x:727.6,y:308.6}}]},5).to({state:[{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape},{t:this.instance,p:{regX:4.6,regY:-1.6,rotation:0.2,x:727.7,y:308.6}}]},5).to({state:[{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape},{t:this.instance,p:{regX:4.6,regY:-1.6,rotation:0.2,x:727.7,y:308.6}}]},5).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = rect = new cjs.Rectangle(1145,433.6,533,583.8);
-p.frameBounds = [rect, rect=new cjs.Rectangle(1145,432.3,533,585.1), rect, rect, rect, rect=new cjs.Rectangle(1145,433.6,533,583.8), rect, rect, rect, rect, rect=new cjs.Rectangle(1145,430.9,533,586.5), rect, rect, rect, rect, rect=new cjs.Rectangle(1145,433.6,533,583.8), rect, rect, rect, rect, rect=new cjs.Rectangle(1145,432.2,533,585.2), rect, rect, rect, rect, rect=new cjs.Rectangle(1145,433.6,533,583.8), rect, rect, rect, rect, rect=new cjs.Rectangle(1145,431,533,586.4), rect, rect, rect, rect, rect=new cjs.Rectangle(1145,433.6,533,583.8), rect, rect, rect, rect, rect];
+p.nominalBounds = new cjs.Rectangle(1145,433.6,533,583.8);
 // library properties:
 lib.properties = {
 	id: '95DF81B71BEF3F4A960F5F47344DFE94',
