@@ -193,7 +193,6 @@ img {
     #menu {
         margin: 0;
         background: rgba(12, 21, 29, 0.5);
-        padding: .6em 0;
         font-size: 1.3em;
         color: #FFF;
     }
@@ -439,6 +438,7 @@ img {
         padding: .6em 0;
         font-size: 1.3em;
         color: #FFF;
+        overflow: auto;
     }
     #tiempo,
     #atras,
@@ -481,4 +481,95 @@ img {
         font: bold;
         text-transform: uppercase;
     }
+}
+
+/*MENU*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    background: #FFFFFA;
+    margin: 0;
+}
+
+header {
+    margin: 0;
+    width: 100%;
+}
+
+header nav {
+    margin: 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    background: #024959;
+}
+
+.menu_bar {
+    display: none;
+}
+
+header nav ul {
+    overflow: hidden;
+    list-style: none;
+}
+
+header nav ul li {
+    float: left;
+}
+
+header nav ul li a {
+    color: #FFF;
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    background: #037E8C;
+}
+
+@media screen and (max-width:800px) {
+    header nav {
+        width: 80%;
+        height: 100%;
+        left: -100%;
+        margin: 0;
+        position: fixed;
+    }
+
+    header nav ul li{
+        display: block;
+        float: none;
+        border-bottom: 1px solid rgba(255,255,255,.3);
+    }
+
+    .menu_bar{
+        display: block;
+        width: 100%;
+        background: #CCC; 
+    }
+
+    .menu_bar .btn-menu{
+        display: block;
+        padding: 20px;
+        background: #024959;
+        color: #FFF;
+        font-weight: bold;
+        font-size: 25px;
+        box-sizing: border-box;
+    }
+}
+
+/*INFO MENU*/
+.info{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.info li{
+    padding: .5em 1em;
 }
