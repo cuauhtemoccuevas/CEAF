@@ -1,11 +1,22 @@
 @font-face {
     font-family: courgette;
-    src: url(../font/Courgette-Regular.ttf);
+    src: url(../font/SinkinSans-500MediumItalic.otf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow: hidden;
 }
 
 body {
     font-size: 15px;
     font-family: courgette;
+    margin: 0;
+    height: 100%;
 }
 
 /*INDEX*/
@@ -33,12 +44,11 @@ body {
     text-align: center;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 480px){
+@media only screen and (min-width: 320px) and (max-width: 480px) {
     #cargando {
         width: 1000px;
         height: 1000px;
     }
-    
     #title-cargando {
         position: absolute;
         bottom: 170px;
@@ -49,8 +59,6 @@ body {
         text-align: center;
     }
 }
-
-
 
 /*INICIO*/
 
@@ -191,9 +199,9 @@ img {
         background-repeat: no-repeat;
     }
     #menu {
-        margin: 0;
-        background: rgba(12, 21, 29, 0.5);
-        font-size: 1.3em;
+        border-bottom: 2px solid #000;
+        background: #037E8C;
+        font-size: 1em;
         color: #FFF;
     }
     #tiempo,
@@ -215,10 +223,16 @@ img {
         background: inherit;
         background-color: transparent;
     }
+    .tit {
+        padding: 1em 0;
+        text-align: center;
+    }
     #modpuntos,
     #modtiempo {
         width: 100%;
         text-align: center;
+        padding: .6em 0;
+        font-weight: bold;
     }
     #nuevo {
         margin-top: 2em;
@@ -254,7 +268,7 @@ img {
     }
     #animales {
         height: 30%;
-        width: 100%;
+        width: 98%;
     }
     #habitat {
         width: 100%;
@@ -281,6 +295,7 @@ img {
         border: 2px solid #444;
     }
     .arrastrable {
+        margin: 0 2.5em;
         display: inline-block;
         width: 50px;
         height: 50px;
@@ -288,7 +303,6 @@ img {
         background-size: 60%;
         background-position: center center;
         background-repeat: no-repeat;
-        margin: 0 1.2em;
     }
     .arrastrable:hover {
         border-radius: 25%;
@@ -296,15 +310,14 @@ img {
         border-top: 3px solid rgb(6, 46, 36);
         border-bottom: 3px solid rgb(6, 46, 36);
         background-size: cover;
-        background-size: 90%;
+        background-size: 75%;
         background-position: center center;
         background-repeat: no-repeat;
     }
     #menu {
-        margin: 0;
-        background: rgba(12, 21, 29, 0.5);
-        padding: .6em 0;
-        font-size: 1.3em;
+        border-bottom: 2px solid #000;
+        background: #037E8C;
+        font-size: 1em;
         color: #FFF;
     }
     #tiempo,
@@ -315,21 +328,21 @@ img {
         display: inline-block;
         text-align: center;
     }
-    #menu img {
-        width: 30px;
-        height: 30px;
-    }
-    .fa {
+
+    i {
         color: #FFF;
     }
-    #relog {
-        background: inherit;
-        background-color: transparent;
+
+    .tit {
+        padding: 1em 0;
+        text-align: center;
     }
     #modpuntos,
     #modtiempo {
         width: 100%;
         text-align: center;
+        padding: .6em 0;
+        font-weight: bold;
     }
     #nuevo {
         margin-top: 2em;
@@ -350,7 +363,7 @@ img {
     }
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1024px) {
     html {
         max-width: 100%;
         height: 100%;
@@ -372,14 +385,15 @@ img {
         display: inline-block;
     }
     #habitat {
+        margin: 0;
+        padding: 0;
         width: 68%;
         height: 90%;
         display: inline-block;
-        /* margin-left: 10px; */
         padding-left: 10px;
     }
     #col1 {
-        width: 32%;
+        width: 30%;
         height: 100%;
         display: inline-block;
     }
@@ -392,24 +406,23 @@ img {
         text-align: center;
     }
     #h1 {
-        border: 2px solid #FFF;
+        margin: 0;
+        padding: 0;
         display: inline-block;
         width: 100%;
         height: 50%;
     }
     .hab {
+        margin: 0;
+        padding: 0;
         display: inline-block;
-        width: 49%;
-        height: 90%;
+        width: 48%;
+        height: 97%;
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: 100%;
         border: 2px solid #444;
-    }
-    .fond {
-        width: 100%;
-        height: 90%;
     }
     .arrastrable {
         position: relative;
@@ -427,18 +440,15 @@ img {
         border-top: 3px solid rgb(6, 46, 36);
         border-bottom: 3px solid rgb(6, 46, 36);
         background-size: cover;
-        background-size: 90%;
+        background-size: 80%;
         background-position: center center;
         background-repeat: no-repeat;
     }
     #menu {
-        margin: 0;
-        padding-left: 60px;
-        background: rgba(12, 21, 29, 0.5);
-        padding: .6em 0;
-        font-size: 1.3em;
+        border-bottom: 2px solid #000;
+        background: #037E8C;
+        font-size: 1em;
         color: #FFF;
-        overflow: auto;
     }
     #tiempo,
     #atras,
@@ -448,21 +458,28 @@ img {
         display: inline-block;
         text-align: center;
     }
-    #menu img {
-        width: 30px;
-        height: 30px;
+    #icono_menu {
+        width: 22.5%;
+        position: absolute;
+        left: 1020px;
     }
-    .fa {
+    i,
+    #relog,
+    #puntaje {
         color: #FFF;
+        font-size: 1.7em;
+        padding: .7em 0;
     }
-    #relog {
-        background: inherit;
-        background-color: transparent;
+    .tit {
+        padding: 1em 0;
+        text-align: center;
     }
     #modpuntos,
     #modtiempo {
         width: 100%;
         text-align: center;
+        padding: .6em 0;
+        font-weight: bold;
     }
     #nuevo {
         margin-top: 2em;
@@ -484,27 +501,11 @@ img {
 }
 
 /*MENU*/
-* {
-    margin: 0;
-    padding: 0;
-}
 
-body {
-    margin: 0;
-    background: #FFFFFA;
-    margin: 0;
-}
-
-header {
-    margin: 0;
-    width: 100%;
-}
+/*---------------------------------------------------------------------------------*/
 
 header nav {
-    margin: 0;
-    width: 90%;
-    max-width: 1000px;
-    margin: 20px auto;
+    width: 100%;
     background: #024959;
 }
 
@@ -523,16 +524,20 @@ header nav ul li {
 
 header nav ul li a {
     color: #FFF;
-    padding: 20px;
+    padding: 0 1.7em;
     display: block;
     text-decoration: none;
+    padding: .5em 2.1em;
+    border-right: 1px solid #FFF;
+    border-left: 1px solid #FFF;
+    font-size: .8em;
 }
 
 header nav ul li a:hover {
     background: #037E8C;
 }
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:1024px) {
     header nav {
         width: 80%;
         height: 100%;
@@ -540,20 +545,20 @@ header nav ul li a:hover {
         margin: 0;
         position: fixed;
     }
-
-    header nav ul li{
+    header nav ul li {
         display: block;
         float: none;
-        border-bottom: 1px solid rgba(255,255,255,.3);
+        border-bottom: 1px solid rgba(255, 255, 255, .3);
     }
-
-    .menu_bar{
+    header nav ul li a {
+        padding: 1em 0;
+    }
+    .menu_bar {
         display: block;
         width: 100%;
-        background: #CCC; 
+        background: #CCC;
     }
-
-    .menu_bar .btn-menu{
+    .menu_bar .btn-menu {
         display: block;
         padding: 20px;
         background: #024959;
@@ -564,12 +569,17 @@ header nav ul li a:hover {
     }
 }
 
-/*INFO MENU*/
-.info{
+/*---------------------------------------------------------------------------------*/
+
+/*INFORMACION MENU*/
+
+/*---------------------------------------------------------------------------------*/
+
+.info {
     width: 70%;
     margin: 0 auto;
 }
 
-.info li{
+.info li {
     padding: .5em 1em;
 }

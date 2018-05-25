@@ -21,7 +21,9 @@
         var puntaje = 0;
         var correctos = 0;
         var tfinal = 0;
-        var cond = false, det = false;
+        var cond = false,
+            det = false;
+
         function mueveReloj() {
             if (!det) {
                 if (seg == 59) {
@@ -35,12 +37,15 @@
             document.getElementById('relog').innerHTML = horaImprimible;
             setTimeout("mueveReloj()", 1000)
         }
+
         function fin() {
             $("#dialog").dialog();
         }
         $(document).ready(function () {
             $(".arrastrable").draggable();
-            $(".arrastrable").draggable({ revert: true });
+            $(".arrastrable").draggable({
+                revert: true
+            });
             $(".arrastrable").data("soltado", false);
             $(".suelta").droppable({
                 drop: function (event, ui) {
@@ -49,7 +54,9 @@
                         cond = true;
                     }
                     if (!ui.draggable.data("soltado")) {
-                        $(".arrastrable").draggable({ revert: false });
+                        $(".arrastrable").draggable({
+                            revert: false
+                        });
                         ui.draggable.data("soltado", true);
                         var a = ui.draggable["0"].id;
                         $("#" + a).draggable("disable");
@@ -66,7 +73,9 @@
                 },
                 out: function (event, ui) {
                     if (ui.draggable.data("soltado")) {
-                        $(".arrastrable").draggable({ revert: true });
+                        $(".arrastrable").draggable({
+                            revert: true
+                        });
                         ui.draggable.data("soltado", false);
                     }
                 }
@@ -80,7 +89,8 @@
 </head>
 
 <body>
-    <header class="ui-corner-top " id="menu">
+   
+    <header id="menu">
 
         <div id="icono_menu">
             <div class="menu_bar">
@@ -91,10 +101,14 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="instrucciones.html" target="_blank" id="ins">Instrucciones</a>
+
+                        <a href="instrucciones.html" target="_blank" id="ins">
+                            <i class="fas fa-info"></i> Instrucciones</a>
                     </li>
                     <li>
-                        <a href="acercade.html" target="_blank" id="ace">Acerca de</a>
+
+                        <a href="acercade.html" target="_blank" id="ace">
+                            <i class="far fa-question-circle" aria-hidden="true"></i> Acerca de</a>
                     </li>
                 </ul>
             </nav>
@@ -106,14 +120,15 @@
             </a>
         </div>
         <div id="tiempo">
-            <img src="img/relog.png">
-            <label id="relog">0:0</label>
+            <i class="far fa-clock" aria-hidden="true"></i>
+            <label id="relog"> 0:0</label>
         </div>
         <div id="puntos">
-            <img src="img/puntos.png">
-            <label id="puntaje">0</label>
+            <i class="fas fa-trophy" aria-hidden="true"></i>
+            <label id="puntaje"> 0</label>
         </div>
     </header>
+
     <div class="todo">
         <div class="animales" id="animales">
             <div id="col1">
@@ -175,10 +190,10 @@
         </div>
     </div>
     <div id="dialog" title="FELICIDADES">
-        <p>Total de puntos obtenidos:</p>
+        <p class="tit">Total de puntos obtenidos:</p>
         <input type="text" id="modpuntos" name="puntos" readonly/>
         <br>
-        <p>Tiempo total:</p>
+        <p class="tit">Tiempo total:</p>
         <input type="text" id="modtiempo" name="tiempo" readonly/>
         <br>
         <a href="animales.html" id="nuevo">jugar otra vez</a>
