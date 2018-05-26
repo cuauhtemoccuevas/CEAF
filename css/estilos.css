@@ -363,7 +363,7 @@ img {
     }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 768px) {
     html {
         max-width: 100%;
         height: 100%;
@@ -454,20 +454,157 @@ img {
     #atras,
     #puntos,
     #icono_menu {
-        width: 24%;
+        width: 16%;
         display: inline-block;
         text-align: center;
     }
     #icono_menu {
-        width: 22.5%;
+        width: 40%;
         position: absolute;
-        left: 1020px;
+        left: 450px;
     }
     i,
     #relog,
     #puntaje {
         color: #FFF;
-        font-size: 1.7em;
+        font-size: 1.5em;
+        padding: .7em 0;
+    }
+    .tit {
+        padding: 1em 0;
+        text-align: center;
+    }
+    #modpuntos,
+    #modtiempo {
+        width: 100%;
+        text-align: center;
+        padding: .6em 0;
+        font-weight: bold;
+    }
+    #nuevo {
+        margin-top: 2em;
+        display: block;
+        padding: 1em 0;
+        width: 100%;
+        background: rgb(7, 56, 63);
+        color: #FFF;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    #nuevo:hover {
+        background: rgb(9, 72, 82);
+        color: orange;
+        font: bold;
+        text-transform: uppercase;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    html {
+        max-width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    body {
+        margin: 0;
+        max-width: 100%;
+        height: 100%;
+    }
+    .todo {
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+    }
+    #animales {
+        height: 90%;
+        width: 30%;
+        display: inline-block;
+    }
+    #habitat {
+        margin: 0;
+        padding: 0;
+        width: 68%;
+        height: 90%;
+        display: inline-block;
+        padding-left: 10px;
+    }
+    #col1 {
+        width: 30%;
+        height: 100%;
+        display: inline-block;
+    }
+    #animal {
+        width: 100%;
+        height: 24%;
+    }
+    div.desc {
+        padding: 15px;
+        text-align: center;
+    }
+    #h1 {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        width: 100%;
+        height: 50%;
+    }
+    .hab {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        width: 48%;
+        height: 97%;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        border: 2px solid #444;
+    }
+    .arrastrable {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        background-size: cover;
+        background-size: 70%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        margin: 1em auto;
+    }
+    .arrastrable:hover {
+        border-radius: 25%;
+        background: rgba(45, 82, 112, 0.5);
+        border-top: 3px solid rgb(6, 46, 36);
+        border-bottom: 3px solid rgb(6, 46, 36);
+        background-size: cover;
+        background-size: 80%;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    #menu {
+        border-bottom: 2px solid #000;
+        background: #037E8C;
+        font-size: 1em;
+        color: #FFF;
+    }
+    #tiempo,
+    #atras,
+    #puntos,
+    #icono_menu {
+        width: 16%;
+        display: inline-block;
+        text-align: center;
+    }
+    #icono_menu {
+        width: 40%;
+        position: absolute;
+        left: 700px;
+    }
+    i,
+    #relog,
+    #puntaje {
+        color: #FFF;
+        font-size: 1.5em;
         padding: .7em 0;
     }
     .tit {
@@ -537,7 +674,7 @@ header nav ul li a:hover {
     background: #037E8C;
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:768px) {
     header nav {
         width: 80%;
         height: 100%;
