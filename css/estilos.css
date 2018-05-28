@@ -295,6 +295,7 @@ img {
         border: 2px solid #444;
     }
     .arrastrable {
+        position: relative;
         margin: 0 2.5em;
         display: inline-block;
         width: 50px;
