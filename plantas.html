@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/fontawesome-all.css">
     <link rel="stylesheet" href="css/estilos.css">
+       <script src="js/main.js"></script>
     <script type="text/javascript">
         var min = 0;
         var seg = 0;
@@ -47,10 +48,12 @@
                         cond = true;
                     }
                     if (!ui.draggable.data("soltado")) {
-                        $(".arrastrable").draggable({ revert: false });
-                        ui.draggable.data("soltado", true);
+                       ui.draggable.data("soltado", true);
                         var a = ui.draggable["0"].id;
-                        $("#" + a).draggable("disable");
+                       $("#" + a).draggable("disable");
+                       $("#" + a).draggable({ revert: false });
+                       var audio = document.getElementById("audio");
+                       audio.play();
                         correctos++;
                         puntaje += 100;
                         document.getElementById('puntaje').innerHTML = puntaje;
@@ -89,12 +92,12 @@
                 <ul>
                     <li>
 
-                        <a href="instrucciones.html" target="_blank" id="ins">
+                        <a href="instrucciones.html" id="ins">
                             <i class="fas fa-info"></i> Instrucciones</a>
                     </li>
                     <li>
 
-                        <a href="acercade.html" target="_blank" id="ace">
+                        <a href="acercade.html"  id="ace">
                             <i class="far fa-question-circle" aria-hidden="true"></i> Acerca de</a>
                     </li>
                 </ul>
@@ -179,7 +182,7 @@
             </div>
         </div>
     </div>
-    <div id="dialog" title="FELICIDADES">
+    <div id="dialog" title="FELICIDADES" style="display: none">
         <p>total de puntos obtenidos:</p>
         <input type="text" id="modpuntos" name="puntos" readonly />
         <br>
@@ -188,6 +191,9 @@
         <br>
         <a href="plantas.html" id="nuevo">jugar otra vez</a>
     </div>
+    <audio id="audio" controls style="display: none">
+        <source type="audio/wav" src="audio/correcto.wav" >
+</audio>
 </body>
 
 </html>
